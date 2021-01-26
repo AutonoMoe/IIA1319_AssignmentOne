@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AssignmentOne
+namespace AssignmentOneApplication
 {
     public partial class AssignmentOne : Form
     {

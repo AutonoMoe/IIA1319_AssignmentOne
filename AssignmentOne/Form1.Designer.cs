@@ -1,5 +1,5 @@
 ﻿
-namespace AssignmentOne
+namespace AssignmentOneApplication
 {
     partial class AssignmentOne
     {
@@ -29,6 +29,7 @@ namespace AssignmentOne
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AssignmentOne));
             this.panelSideBar = new System.Windows.Forms.Panel();
             this.panelMenuSelectionIndicator = new System.Windows.Forms.Panel();
             this.btnAbout = new System.Windows.Forms.Button();
@@ -181,7 +182,7 @@ namespace AssignmentOne
             // panelLogo
             // 
             this.panelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(35)))));
-            this.panelLogo.BackgroundImage = global::AssignmentOne.Properties.Resources.plug_128;
+            this.panelLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelLogo.BackgroundImage")));
             this.panelLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.panelLogo.Location = new System.Drawing.Point(93, 4);
             this.panelLogo.Name = "panelLogo";
@@ -215,7 +216,7 @@ namespace AssignmentOne
             // 
             this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(7)))), ((int)(((byte)(11)))));
-            this.btnExit.BackgroundImage = global::AssignmentOne.Properties.Resources.close_window_64;
+            this.btnExit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExit.BackgroundImage")));
             this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnExit.FlatAppearance.BorderSize = 0;
             this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(15)))), ((int)(((byte)(20)))));
@@ -255,7 +256,7 @@ namespace AssignmentOne
             // 
             // panelMainLogo
             // 
-            this.panelMainLogo.BackgroundImage = global::AssignmentOne.Properties.Resources.plug_128;
+            this.panelMainLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelMainLogo.BackgroundImage")));
             this.panelMainLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.panelMainLogo.Location = new System.Drawing.Point(416, 128);
             this.panelMainLogo.Name = "panelMainLogo";
@@ -268,9 +269,9 @@ namespace AssignmentOne
             this.lblMainLogoTitle.ForeColor = System.Drawing.Color.White;
             this.lblMainLogoTitle.Location = new System.Drawing.Point(355, 259);
             this.lblMainLogoTitle.Name = "lblMainLogoTitle";
-            this.lblMainLogoTitle.Size = new System.Drawing.Size(250, 32);
+            this.lblMainLogoTitle.Size = new System.Drawing.Size(250, 64);
             this.lblMainLogoTitle.TabIndex = 2;
-            this.lblMainLogoTitle.Text = "DAQ Simulator";
+            this.lblMainLogoTitle.Text = "DAQ Simulator\r\nApplication";
             this.lblMainLogoTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // AssignmentOne

@@ -1,5 +1,5 @@
 ﻿
-namespace AssignmentOne
+namespace AssignmentOneApplication
 {
     partial class FormConfiguration
     {
