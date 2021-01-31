@@ -48,17 +48,11 @@ namespace AssignmentOneApplication
         private void InitializeSensors()
         {
             int numberOfSensors = Configuration.NumberOfAnalogSensors + Configuration.NumberOfDigitalSensors;
-            SensorHandler.sensorControls = new SensorControl[numberOfSensors];
+            SensorHandler.sensors = new Sensor[numberOfSensors];
             for (int i = 0; i < Configuration.NumberOfAnalogSensors + Configuration.NumberOfDigitalSensors; i++)
             {
-                SensorHandler.sensorControls[i] = new SensorControl();
-                SensorHandler.sensorControls[i].SensorName = "Sensor #" + (i + 1);
-                SensorHandler.sensorControls[i].SensorId = i;
-                SensorHandler.sensorControls[i].SensorColor = Color.FromArgb(rnd.Next(0,200), rnd.Next(0, 200), rnd.Next(0, 200));
-                SensorHandler.sensorControls[i].SensorIcon = i < Configuration.NumberOfAnalogSensors ? ((System.Drawing.Image)(AssignmentOneApplication.Properties.Resources.icons8_plot_100)) : ((System.Drawing.Image)(AssignmentOneApplication.Properties.Resources.icons8_square_wave_100));
-                SensorHandler.sensorControls[i].SensorAnalog = i < Configuration.NumberOfAnalogSensors ? true : false;
-                SensorHandler.sensorControls[i].SensorValue = 0.5;
-                SensorHandler.sensorControls[i].GetSensorValue();
+                SensorHandler.sensors[i] = new Sensor(i, "Sensor #" + (i + 1), 0.5, i < Configuration.NumberOfAnalogSensors ? true : false);
+                SensorHandler.sensors[i].GetSensorValue();
             }
         }
 

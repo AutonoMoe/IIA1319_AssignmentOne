@@ -20,10 +20,15 @@ namespace AssignmentOneApplication
         private void InitializeSensorControls()
         {
             flowSensorsMain.Controls.Clear();
-            foreach(SensorControl s in SensorHandler.sensorControls)
+            foreach(Sensor s in SensorHandler.sensors)
             {
-                s.Size = new System.Drawing.Size(160, 215);
-                flowSensorsMain.Controls.Add(s);
+                SensorControl sensorControl = new SensorControl();
+                sensorControl.Size = new System.Drawing.Size(160, 215);
+                sensorControl.SensorId = s.SensorId;
+                sensorControl.SensorName = s.SensorName;
+                sensorControl.SensorValue = s.SensorValue;
+                sensorControl.SensorIcon = s.SensorAnalog == true ? ((System.Drawing.Image)(AssignmentOneApplication.Properties.Resources.icons8_plot_100)) : ((System.Drawing.Image)(AssignmentOneApplication.Properties.Resources.icons8_square_wave_100));
+                flowSensorsMain.Controls.Add(sensorControl);
             }
         }
 

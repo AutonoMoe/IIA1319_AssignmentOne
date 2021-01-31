@@ -12,11 +12,11 @@ namespace AssignmentOneApplication
         public static Timer sampleTimer = new Timer();
         public static string nextSampleTime = "";
         public static Timer loggingTimer = new Timer();
-        public static SensorControl[] sensorControls = new SensorControl[Configuration.NumberOfAnalogSensors + Configuration.NumberOfDigitalSensors];
+        public static Sensor[] sensors = new Sensor[Configuration.NumberOfAnalogSensors + Configuration.NumberOfDigitalSensors];
 
         public static void SampleSensors(object sender, EventArgs e)
         {
-            foreach(SensorControl s in sensorControls)
+            foreach(Sensor s in sensors)
             {
                 s.GetSensorValue();
             }

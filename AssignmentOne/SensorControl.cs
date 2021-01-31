@@ -65,38 +65,6 @@ namespace AssignmentOneApplication
             set { sensorColor = value; panelSensorTop.BackColor = value; panelSensorData.BackColor = Color.FromArgb(value.A, (int)((255 - value.R) * 0.2 + value.R), (int)((255 - value.G) * 0.2 + value.G), (int)((255 - value.B) * 0.2 + value.B)); }
         }
 
-        private bool sensorAnalog = true;
-
-        [Category("Sensor Properties")]
-        public bool SensorAnalog
-        {
-            get { return sensorAnalog; }
-            set { sensorAnalog = value; }
-        }
-
-        #endregion
-
-        #region Functions
-        public void GetSensorValue()
-        {
-            if (!SensorAnalog)
-            {
-                SensorValue = randomSensorValue.NextDouble() < 0.5 ? Configuration.DaqInputVoltageMin : Configuration.DaqInputVoltageMax;
-            }
-            else
-            {
-                double addition = (randomSensorValue.NextDouble() - 0.5) * (Configuration.DaqInputVoltageMax - Configuration.DaqInputVoltageMin) * 0.2;
-                SensorValue += addition;
-                if(SensorValue > Configuration.DaqInputVoltageMax)
-                {
-                    SensorValue = Configuration.DaqInputVoltageMax;
-                }
-                else if (SensorValue < Configuration.DaqInputVoltageMin)
-                {
-                    SensorValue = Configuration.DaqInputVoltageMin;
-                }
-            }
-        }
         #endregion
     }
 }
