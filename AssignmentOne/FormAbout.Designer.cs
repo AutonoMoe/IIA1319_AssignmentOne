@@ -126,7 +126,8 @@ namespace AssignmentOneApplication
             this.txtAboutIconsBy.Name = "txtAboutIconsBy";
             this.txtAboutIconsBy.Size = new System.Drawing.Size(800, 94);
             this.txtAboutIconsBy.TabIndex = 7;
-            this.txtAboutIconsBy.Text = "Square Wave icon: Icon by Icons8\r\nPlot icon: Icon by Icons8\r\n";
+            this.txtAboutIconsBy.Text = "Square Wave icon: Icon by Icons8\r\nPlot icon: Icon by Icons8\r\nLine Chart icon: Ico" +
+    "n by Icons8\r\nDelete icon: Icon by Icons8";
             // 
             // FormAbout
             // 

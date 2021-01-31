@@ -150,6 +150,7 @@ namespace AssignmentOneApplication
             this.btnSampling.Text = "Start Sampling";
             this.btnSampling.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSampling.UseVisualStyleBackColor = false;
+            this.btnSampling.Click += new System.EventHandler(this.btnSampling_Click);
             // 
             // btnSensors
             // 
@@ -287,7 +288,6 @@ namespace AssignmentOneApplication
             this.Controls.Add(this.panelSideBar);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Gainsboro;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -295,9 +295,6 @@ namespace AssignmentOneApplication
             this.Name = "AssignmentOne";
             this.ShowIcon = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Assignment One";
-            this.TopMost = true;
             this.panelSideBar.ResumeLayout(false);
             this.panelSensorsSubMenu.ResumeLayout(false);
             this.panelApplicationTitle.ResumeLayout(false);

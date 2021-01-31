@@ -14,11 +14,14 @@ namespace AssignmentOneApplication
     {
 
         private Form activeForm = null;
+        private Random rnd = new Random();
 
         public AssignmentOne()
         {
             InitializeComponent();
             InitializeSubMenus();
+            InitializeTimers();
+            InitializeSensors();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -30,6 +33,33 @@ namespace AssignmentOneApplication
         {
             panelSensorsSubMenu.Visible = false;
             panelMenuSelectionIndicator.Visible = false;
+        }
+
+        private void InitializeTimers()
+        {
+            SensorHandler.sampleTimer.Interval = (int)(Configuration.SamplingTime * 1000);
+            SensorHandler.sampleTimer.Tick += new EventHandler(SensorHandler.SampleSensors);
+            
+            SensorHandler.loggingTimer.Interval = (int)(Configuration.LoggingTime * 1000);
+            SensorHandler.loggingTimer.Tick += new EventHandler(SensorHandler.LogSamples);
+
+        }
+
+        private void InitializeSensors()
+        {
+            int numberOfSensors = Configuration.NumberOfAnalogSensors + Configuration.NumberOfDigitalSensors;
+            SensorHandler.sensorControls = new SensorControl[numberOfSensors];
+            for (int i = 0; i < Configuration.NumberOfAnalogSensors + Configuration.NumberOfDigitalSensors; i++)
+            {
+                SensorHandler.sensorControls[i] = new SensorControl();
+                SensorHandler.sensorControls[i].SensorName = "Sensor #" + (i + 1);
+                SensorHandler.sensorControls[i].SensorId = i;
+                SensorHandler.sensorControls[i].SensorColor = Color.FromArgb(rnd.Next(0,200), rnd.Next(0, 200), rnd.Next(0, 200));
+                SensorHandler.sensorControls[i].SensorIcon = i < Configuration.NumberOfAnalogSensors ? ((System.Drawing.Image)(AssignmentOneApplication.Properties.Resources.icons8_plot_100)) : ((System.Drawing.Image)(AssignmentOneApplication.Properties.Resources.icons8_square_wave_100));
+                SensorHandler.sensorControls[i].SensorAnalog = i < Configuration.NumberOfAnalogSensors ? true : false;
+                SensorHandler.sensorControls[i].SensorValue = 0.5;
+                SensorHandler.sensorControls[i].GetSensorValue();
+            }
         }
 
         private void HideSubMenu()
@@ -95,5 +125,18 @@ namespace AssignmentOneApplication
             childForm.Show();
         }
 
+        private void btnSampling_Click(object sender, EventArgs e)
+        {
+            if(btnSampling.Text == "Start Sampling")
+            {
+                SensorHandler.sampleTimer.Start();
+                btnSampling.Text = "Stop Sampling";
+            }
+            else
+            {
+                SensorHandler.sampleTimer.Stop();
+                btnSampling.Text = "Start Sampling";
+            }
+        }
     }
 }
