@@ -24,9 +24,10 @@ namespace AssignmentOneApplication
             {
                 SensorControl sensorControl = new SensorControl();
                 sensorControl.Size = new System.Drawing.Size(160, 215);
+                sensorControl.SensorName = s.SensorName;
                 sensorControl.SensorId = s.SensorId;
                 sensorControl.SensorName = s.SensorName;
-                sensorControl.SensorValue = s.SensorValue;
+                sensorControl.DataBindings.Add("SensorValue", s, "SensorValue", false, DataSourceUpdateMode.OnPropertyChanged);
                 sensorControl.SensorIcon = s.SensorAnalog == true ? ((System.Drawing.Image)(AssignmentOneApplication.Properties.Resources.icons8_plot_100)) : ((System.Drawing.Image)(AssignmentOneApplication.Properties.Resources.icons8_square_wave_100));
                 flowSensorsMain.Controls.Add(sensorControl);
             }

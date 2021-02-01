@@ -27,26 +27,59 @@ namespace AssignmentOneApplication
         public int SensorId
         {
             get { return sensorId; }
-            set { sensorId = value; randomSensorValue = new Random(value); }
+            set 
+            {
+                if (sensorId == value) return;
+                sensorId = value;
+                var handler = SensorIdChanged;
+                if (handler != null) handler(this, EventArgs.Empty);
+                randomSensorValue = new Random(value);
+            }
         }
+
+        public event EventHandler SensorIdChanged;
 
         public string SensorName
         {
             get { return sensorName; }
-            set { sensorName = value; }
+            set
+            {
+                if (sensorName == value) return;
+                sensorName = value;
+                var handler = SensorNameChanged;
+                if (handler != null) handler(this, EventArgs.Empty);
+            }
         }
+
+        public event EventHandler SensorNameChanged;
 
         public double SensorValue
         {
             get { return sensorValue; }
-            set { sensorValue = value; }
+            set
+            {
+                if (sensorValue == value) return;
+                sensorValue = value;
+                var handler = SensorValueChanged;
+                if (handler != null) handler(this, EventArgs.Empty);
+            }
         }
+
+        public event EventHandler SensorValueChanged;
 
         public bool SensorAnalog
         {
             get { return sensorAnalog; }
-            set { sensorAnalog = value; }
+            set
+            {
+                if (sensorAnalog == value) return;
+                sensorAnalog = value;
+                var handler = SensorAnalogChanged;
+                if (handler != null) handler(this, EventArgs.Empty);
+            }
         }
+
+        public event EventHandler SensorAnalogChanged;
 
         #endregion
 
@@ -55,19 +88,19 @@ namespace AssignmentOneApplication
         {
             if (!sensorAnalog)
             {
-                sensorValue = randomSensorValue.NextDouble() < 0.5 ? Configuration.DaqInputVoltageMin : Configuration.DaqInputVoltageMax;
+                SensorValue = randomSensorValue.NextDouble() < 0.5 ? Configuration.DaqInputVoltageMin : Configuration.DaqInputVoltageMax;
             }
             else
             {
                 double addition = (randomSensorValue.NextDouble() - 0.5) * (Configuration.DaqInputVoltageMax - Configuration.DaqInputVoltageMin) * 0.2;
-                sensorValue += addition;
-                if (sensorValue > Configuration.DaqInputVoltageMax)
+                SensorValue += addition;
+                if (SensorValue > Configuration.DaqInputVoltageMax)
                 {
-                    sensorValue = Configuration.DaqInputVoltageMax;
+                    SensorValue = Configuration.DaqInputVoltageMax;
                 }
-                else if (sensorValue < Configuration.DaqInputVoltageMin)
+                else if (SensorValue < Configuration.DaqInputVoltageMin)
                 {
-                    sensorValue = Configuration.DaqInputVoltageMin;
+                    SensorValue = Configuration.DaqInputVoltageMin;
                 }
             }
         }
