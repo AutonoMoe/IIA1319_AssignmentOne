@@ -9,10 +9,15 @@ namespace AssignmentOneApplication
 {
     static class SensorHandler
     {
+
+        #region Properties
         public static Timer sampleTimer = new Timer();
-        public static string nextSampleTime = "";
+        public static SensorTimer sensorSampleTimer = new SensorTimer();
         public static Timer loggingTimer = new Timer();
         public static Sensor[] sensors = new Sensor[Configuration.NumberOfAnalogSensors + Configuration.NumberOfDigitalSensors];
+
+        #endregion
+
 
         public static void SampleSensors(object sender, EventArgs e)
         {
@@ -20,7 +25,7 @@ namespace AssignmentOneApplication
             {
                 s.GetSensorValue();
             }
-            nextSampleTime = DateTime.Now.AddSeconds(Configuration.SamplingTime).ToString();
+            sensorSampleTimer.TimeString = DateTime.Now.AddSeconds(Configuration.SamplingTime).ToString();
         }
 
         public static void LogSamples(object sender, EventArgs e)

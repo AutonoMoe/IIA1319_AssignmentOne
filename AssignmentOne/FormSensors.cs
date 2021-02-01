@@ -31,6 +31,7 @@ namespace AssignmentOneApplication
                 sensorControl.SensorIcon = s.SensorAnalog == true ? ((System.Drawing.Image)(AssignmentOneApplication.Properties.Resources.icons8_plot_100)) : ((System.Drawing.Image)(AssignmentOneApplication.Properties.Resources.icons8_square_wave_100));
                 flowSensorsMain.Controls.Add(sensorControl);
             }
+            txtSensorsNextSampleTime.DataBindings.Add("Text", SensorHandler.sensorSampleTimer, "TimeString", false, DataSourceUpdateMode.OnPropertyChanged);
         }
 
 
@@ -39,9 +40,5 @@ namespace AssignmentOneApplication
             InitializeSensorControls();
         }
 
-        public void SetSampleText(string text)
-        {
-            txtSensorsNextSampleTime.Text = text;
-        }
     }
 }

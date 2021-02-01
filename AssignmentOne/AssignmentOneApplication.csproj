@@ -81,6 +81,7 @@
       <DependentUpon>SensorControl.cs</DependentUpon>
     </Compile>
     <Compile Include="SensorHandler.cs" />
+    <Compile Include="SensorTimer.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
