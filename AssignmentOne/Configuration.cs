@@ -100,6 +100,14 @@ namespace AssignmentOneApplication
             get { return logFileNameWithDateTime; }
             set { logFileNameWithDateTime = value; }
         }
+
+        private static string logSaveLocation = "C:\\";
+
+        public static string LogSaveLocation
+        {
+            get { return logSaveLocation; }
+            set { logSaveLocation = value; }
+        }
     }
 
     public enum FilterTypes {

@@ -48,6 +48,9 @@ namespace AssignmentOneApplication
             this.radioConfigFilterType2 = new System.Windows.Forms.RadioButton();
             this.lblConfigLogFileDateTime = new System.Windows.Forms.Label();
             this.checkBoxConfigDateTimeInLogFileName = new System.Windows.Forms.CheckBox();
+            this.txtLogDirectory = new System.Windows.Forms.TextBox();
+            this.lblLogDirectory = new System.Windows.Forms.Label();
+            this.btnBrowseDirectory = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblConfigNumberOfAnalog
@@ -255,12 +258,51 @@ namespace AssignmentOneApplication
             this.checkBoxConfigDateTimeInLogFileName.UseVisualStyleBackColor = true;
             this.checkBoxConfigDateTimeInLogFileName.CheckedChanged += new System.EventHandler(this.checkBoxConfigDateTimeInLogFileName_CheckedChanged);
             // 
+            // txtLogDirectory
+            // 
+            this.txtLogDirectory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(35)))));
+            this.txtLogDirectory.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtLogDirectory.ForeColor = System.Drawing.Color.Gainsboro;
+            this.txtLogDirectory.Location = new System.Drawing.Point(584, 83);
+            this.txtLogDirectory.Name = "txtLogDirectory";
+            this.txtLogDirectory.Size = new System.Drawing.Size(180, 16);
+            this.txtLogDirectory.TabIndex = 19;
+            this.txtLogDirectory.Text = "c:\\";
+            this.txtLogDirectory.TextChanged += new System.EventHandler(this.txtLogDirectory_TextChanged);
+            // 
+            // lblLogDirectory
+            // 
+            this.lblLogDirectory.AutoSize = true;
+            this.lblLogDirectory.ForeColor = System.Drawing.Color.White;
+            this.lblLogDirectory.Location = new System.Drawing.Point(581, 58);
+            this.lblLogDirectory.Name = "lblLogDirectory";
+            this.lblLogDirectory.Size = new System.Drawing.Size(91, 17);
+            this.lblLogDirectory.TabIndex = 20;
+            this.lblLogDirectory.Text = "Log directory";
+            // 
+            // btnBrowseDirectory
+            // 
+            this.btnBrowseDirectory.FlatAppearance.BorderSize = 0;
+            this.btnBrowseDirectory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBrowseDirectory.ForeColor = System.Drawing.Color.White;
+            this.btnBrowseDirectory.Location = new System.Drawing.Point(688, 106);
+            this.btnBrowseDirectory.Name = "btnBrowseDirectory";
+            this.btnBrowseDirectory.Size = new System.Drawing.Size(75, 23);
+            this.btnBrowseDirectory.TabIndex = 21;
+            this.btnBrowseDirectory.Text = "Browse";
+            this.btnBrowseDirectory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBrowseDirectory.UseVisualStyleBackColor = true;
+            this.btnBrowseDirectory.Click += new System.EventHandler(this.btnBrowseDirectory_Click);
+            // 
             // FormConfiguration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(7)))), ((int)(((byte)(11)))));
             this.ClientSize = new System.Drawing.Size(1000, 550);
+            this.Controls.Add(this.btnBrowseDirectory);
+            this.Controls.Add(this.lblLogDirectory);
+            this.Controls.Add(this.txtLogDirectory);
             this.Controls.Add(this.checkBoxConfigDateTimeInLogFileName);
             this.Controls.Add(this.lblConfigLogFileDateTime);
             this.Controls.Add(this.radioConfigFilterType2);
@@ -312,5 +354,8 @@ namespace AssignmentOneApplication
         private System.Windows.Forms.RadioButton radioConfigFilterType2;
         private System.Windows.Forms.Label lblConfigLogFileDateTime;
         private System.Windows.Forms.CheckBox checkBoxConfigDateTimeInLogFileName;
+        private System.Windows.Forms.TextBox txtLogDirectory;
+        private System.Windows.Forms.Label lblLogDirectory;
+        private System.Windows.Forms.Button btnBrowseDirectory;
     }
 }

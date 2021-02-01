@@ -12,6 +12,8 @@ namespace AssignmentOneApplication
 {
     public partial class FormConfiguration : Form
     {
+        private FolderBrowserDialog folderBrowserDialog;
+
         public FormConfiguration()
         {
             InitializeComponent();
@@ -19,6 +21,16 @@ namespace AssignmentOneApplication
 
         private void FormConfiguration_Load(object sender, EventArgs e)
         {
+            this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.folderBrowserDialog.Description =
+                "Select the directory where you want to save the log.";
+
+            // Do not allow the user to create new files via the FolderBrowserDialog.
+            this.folderBrowserDialog.ShowNewFolderButton = true;
+
+            // Default to the My Documents folder.
+            this.folderBrowserDialog.RootFolder = Environment.SpecialFolder.MyComputer;
+
             txtConfigNumberOfAnalog.Text = Configuration.NumberOfAnalogSensors.ToString();
             txtConfigNumberOfDigital.Text = Configuration.NumberOfDigitalSensors.ToString();
             txtConfigSamplingTime.Text = Configuration.SamplingTime.ToString();
@@ -26,6 +38,8 @@ namespace AssignmentOneApplication
             txtConfigDaqInputVoltageMin.Text = Configuration.DaqInputVoltageMin.ToString();
             txtConfigDaqInputVoltageMax.Text = Configuration.DaqInputVoltageMax.ToString();
             txtConfigDaqResolution.Text = Configuration.DaqResolution.ToString();
+            txtLogDirectory.Text = Configuration.LogSaveLocation.ToString();
+
             if(Configuration.FilterType == FilterTypes.LowPass)
             {
                 radioConfigFilterType1.Checked = true;
@@ -227,6 +241,24 @@ namespace AssignmentOneApplication
                 Configuration.FilterType = FilterTypes.LowPass;
                 radioConfigFilterType1.Checked = true;
             }
+        }
+
+        private void btnBrowseDirectory_Click(object sender, EventArgs e)
+        {
+            DialogResult result = folderBrowserDialog.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                txtLogDirectory.Text = folderBrowserDialog.SelectedPath;
+            }
+        }
+
+        private void txtLogDirectory_TextChanged(object sender, EventArgs e)
+        {
+            if (System.IO.Directory.Exists(txtLogDirectory.Text))
+            {
+                Configuration.LogSaveLocation = txtLogDirectory.Text;
+            }
+            
         }
     }
 }
