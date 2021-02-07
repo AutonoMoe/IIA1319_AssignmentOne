@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{6F09F13E-F930-4D98-A8C2-77968104C15E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>AssignmentOne</RootNamespace>
+    <RootNamespace>AssignmentOneApplication</RootNamespace>
     <AssemblyName>AssignmentOne</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -105,6 +105,7 @@
     <Compile Include="SensorControl.Designer.cs">
       <DependentUpon>SensorControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="SensorFilter.cs" />
     <Compile Include="SensorHandler.cs" />
     <Compile Include="SensorLog.cs" />
     <Compile Include="SensorLogger.cs" />

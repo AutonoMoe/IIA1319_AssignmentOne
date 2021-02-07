@@ -8,21 +8,138 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-
-namespace AssignmentOneApplication.Properties
-{
+namespace AssignmentOneApplication.Properties {
+    
+    
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "11.0.0.0")]
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase
-    {
-
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.8.1.0")]
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
-
-        public static Settings Default
-        {
-            get
-            {
+        
+        public static Settings Default {
+            get {
                 return defaultInstance;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("6")]
+        public int numberOfAnalogSensors {
+            get {
+                return ((int)(this["numberOfAnalogSensors"]));
+            }
+            set {
+                this["numberOfAnalogSensors"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("3")]
+        public int numberOfDigitalSensors {
+            get {
+                return ((int)(this["numberOfDigitalSensors"]));
+            }
+            set {
+                this["numberOfDigitalSensors"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("3")]
+        public double samplingTime {
+            get {
+                return ((double)(this["samplingTime"]));
+            }
+            set {
+                this["samplingTime"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("47")]
+        public double loggingTime {
+            get {
+                return ((double)(this["loggingTime"]));
+            }
+            set {
+                this["loggingTime"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public double daqInputVoltageMax {
+            get {
+                return ((double)(this["daqInputVoltageMax"]));
+            }
+            set {
+                this["daqInputVoltageMax"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double daqInputVoltageMin {
+            get {
+                return ((double)(this["daqInputVoltageMin"]));
+            }
+            set {
+                this["daqInputVoltageMin"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("12")]
+        public int daqResolution {
+            get {
+                return ((int)(this["daqResolution"]));
+            }
+            set {
+                this["daqResolution"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("MovingAverage")]
+        public string filterType {
+            get {
+                return ((string)(this["filterType"]));
+            }
+            set {
+                this["filterType"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool logFileNameWithDateTime {
+            get {
+                return ((bool)(this["logFileNameWithDateTime"]));
+            }
+            set {
+                this["logFileNameWithDateTime"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:")]
+        public string logSaveLocation {
+            get {
+                return ((string)(this["logSaveLocation"]));
+            }
+            set {
+                this["logSaveLocation"] = value;
             }
         }
     }

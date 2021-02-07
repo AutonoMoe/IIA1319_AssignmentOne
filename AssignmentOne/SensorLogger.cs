@@ -46,8 +46,8 @@ namespace AssignmentOneApplication
             };
         
             string dateString = DateTime.Now.Date.ToString("DD_MM_YYYY");
-            string fileName = "Log" + (Configuration.LogFileNameWithDateTime ? "_" + dateString + ".csv" : ".csv");
-            string filePath = Configuration.LogSaveLocation + fileName;
+            string fileName = "DAQ_Sensor_Log" + (Configuration.LogFileNameWithDateTime ? "_" + dateString + ".csv" : ".csv");
+            string filePath = Path.Combine(Configuration.LogSaveLocation, Path.GetFileName(fileName));
             if (System.IO.File.Exists(filePath))
             {
                 var config = new CsvConfiguration(CultureInfo.InvariantCulture)

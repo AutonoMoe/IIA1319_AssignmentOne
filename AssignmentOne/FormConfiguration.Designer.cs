@@ -267,7 +267,7 @@ namespace AssignmentOneApplication
             this.txtLogDirectory.Name = "txtLogDirectory";
             this.txtLogDirectory.Size = new System.Drawing.Size(180, 16);
             this.txtLogDirectory.TabIndex = 19;
-            this.txtLogDirectory.Text = "c:\\";
+            this.txtLogDirectory.Text = "C:";
             this.txtLogDirectory.TextChanged += new System.EventHandler(this.txtLogDirectory_TextChanged);
             // 
             // lblLogDirectory

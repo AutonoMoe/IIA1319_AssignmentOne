@@ -135,6 +135,8 @@ namespace AssignmentOneApplication
             this.btnLogging.Text = "Start Logging";
             this.btnLogging.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogging.UseVisualStyleBackColor = false;
+            this.btnLogging.EnabledChanged += new System.EventHandler(this.btnLogging_EnabledChanged);
+            this.btnLogging.Click += new System.EventHandler(this.btnLogging_Click);
             // 
             // btnSampling
             // 

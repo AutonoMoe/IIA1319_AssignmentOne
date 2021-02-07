@@ -10,103 +10,117 @@ namespace AssignmentOneApplication
     static class Configuration
     {
 
-        private static int numberOfAnalogSensors = 6;
-
         public static int NumberOfAnalogSensors
         {
-            get { return numberOfAnalogSensors; }
+            get { return Properties.Settings.Default.numberOfAnalogSensors; }
             set { 
                 if (value > 0) 
                 {
-                    numberOfAnalogSensors = value;
+                    Properties.Settings.Default.numberOfAnalogSensors = value;
                 }
                 else
                 {
-                    numberOfAnalogSensors = 1;
+                    Properties.Settings.Default.numberOfAnalogSensors = 1;
                 }
+                Properties.Settings.Default.Save();
             }
         }
 
-        private static int numberOfDigitalSensors = 3;
-
         public static int NumberOfDigitalSensors
         {
-            get { return numberOfDigitalSensors; }
+            get { return Properties.Settings.Default.numberOfDigitalSensors; }
             set
             {
                 if (value > 0)
                 {
-                    numberOfDigitalSensors = value;
+                    Properties.Settings.Default.numberOfDigitalSensors = value;
                 }
                 else
                 {
-                    numberOfDigitalSensors = 1;
+                    Properties.Settings.Default.numberOfDigitalSensors = 1;
                 }
+                Properties.Settings.Default.Save();
             }
         }
 
-        private static double samplingTime = 3.0;
-
         public static double SamplingTime
         {
-            get { return samplingTime; }
-            set { if(value > 0) samplingTime = value; }
+            get { return Properties.Settings.Default.samplingTime; }
+            set 
+            { 
+                if(value > 0) Properties.Settings.Default.samplingTime = value;
+                Properties.Settings.Default.Save();
+            }
         }
-
-        private static double loggingTime = 47.0;
 
         public static double LoggingTime
         {
-            get { return loggingTime; }
-            set { if(value > 0) loggingTime = value; }
+            get { return Properties.Settings.Default.loggingTime; }
+            set 
+            { 
+                if(value > 0) Properties.Settings.Default.loggingTime = value;
+                Properties.Settings.Default.Save();
+            }
         }
-
-        private static double daqInputVoltageMin = 0.0;
 
         public static double DaqInputVoltageMin
         {
-            get { return daqInputVoltageMin; }
-            set { if (value <= daqInputVoltageMax) daqInputVoltageMin = value; }
+            get { return Properties.Settings.Default.daqInputVoltageMin; }
+            set 
+            { 
+                if (value <= DaqInputVoltageMax) Properties.Settings.Default.daqInputVoltageMin = value;
+                Properties.Settings.Default.Save();
+            }
         }
-
-        private static double daqInputVoltageMax = 1.0;
-        
+                
         public static double DaqInputVoltageMax
         {
-            get { return daqInputVoltageMax; }
-            set { if (value >= daqInputVoltageMin) daqInputVoltageMax = value; }
+            get { return Properties.Settings.Default.daqInputVoltageMax; }
+            set 
+            { 
+                if (value >= DaqInputVoltageMin) Properties.Settings.Default.daqInputVoltageMax = value;
+                Properties.Settings.Default.Save();
+            }
         }
-
-        private static int daqResolution = 12;
 
         public static int DaqResolution
         {
-            get { return daqResolution; }
-            set { if(value > 0) daqResolution = value; }
+            get { return Properties.Settings.Default.daqResolution; }
+            set 
+            { 
+                if(value > 0) Properties.Settings.Default.daqResolution = value;
+                Properties.Settings.Default.Save();
+            }
         }
-
-        private static FilterTypes filterType = FilterTypes.MovingAverage;
 
         public static FilterTypes FilterType
         {
-            get { return filterType; }
-            set { filterType = value; }
+            get { return (FilterTypes) Enum.Parse(typeof(FilterTypes), Properties.Settings.Default.filterType); }
+            set 
+            { 
+                Properties.Settings.Default.filterType = value.ToString();
+                Properties.Settings.Default.Save();
+            }
         }
-
-        private static bool logFileNameWithDateTime = false;
 
         public static bool LogFileNameWithDateTime
         {
-            get { return logFileNameWithDateTime; }
-            set { logFileNameWithDateTime = value; }
+            get { return Properties.Settings.Default.logFileNameWithDateTime; }
+            set 
+            { 
+                Properties.Settings.Default.logFileNameWithDateTime = value;
+                Properties.Settings.Default.Save();
+            }
         }
-
-        private static string logSaveLocation = "C:\\";
 
         public static string LogSaveLocation
         {
-            get { return logSaveLocation; }
-            set { logSaveLocation = value; }
+            get { return Properties.Settings.Default.logSaveLocation; }
+            set 
+            { 
+                Properties.Settings.Default.logSaveLocation = value;
+                Properties.Settings.Default.Save();
+            }
         }
     }
 

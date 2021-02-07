@@ -15,6 +15,8 @@ namespace AssignmentOneApplication
         private string sensorName = "Sensor";
         private double sensorValue = 0.0;
         private bool sensorAnalog = true;
+        private SensorFilter sensorFilter;
+        private double sensorFilteredValue = 0.0;
 
         public Sensor(int id, string name, double value, bool isAnalog = true)
         {
@@ -22,6 +24,7 @@ namespace AssignmentOneApplication
             this.SensorName = name;
             this.SensorValue = value;
             this.SensorAnalog = isAnalog;
+            this.sensorFilter = new SensorFilter(Configuration.FilterType, value, Configuration.SamplingTime, Configuration.LoggingTime);
         }
 
         public int SensorId
@@ -81,6 +84,20 @@ namespace AssignmentOneApplication
 
         public event EventHandler SensorAnalogChanged;
 
+        public double SensorFilteredValue
+        {
+            get { return sensorFilteredValue; }
+            set
+            {
+                if (sensorFilteredValue == value) return;
+                sensorFilteredValue = value;
+                var handler = SensorFilteredValueChanged;
+                if (handler != null) handler(this, EventArgs.Empty);
+            }
+        }
+
+        public event EventHandler SensorFilteredValueChanged;
+
         #endregion
 
         #region Functions
@@ -103,6 +120,7 @@ namespace AssignmentOneApplication
                     SensorValue = Configuration.DaqInputVoltageMin;
                 }
             }
+            SensorFilteredValue = sensorFilter.FilterValue(SensorValue);
         }
         #endregion
     }

@@ -33,6 +33,7 @@ namespace AssignmentOneApplication
         {
             panelSensorsSubMenu.Visible = false;
             panelMenuSelectionIndicator.Visible = false;
+            btnLogging.Enabled = false;
         }
 
         private void InitializeTimers()
@@ -42,7 +43,6 @@ namespace AssignmentOneApplication
             
             SensorHandler.loggingTimer.Interval = (int)(Configuration.LoggingTime * 1000);
             SensorHandler.loggingTimer.Tick += new EventHandler(SensorHandler.LogSamples);
-
         }
 
         private void InitializeSensors()
@@ -125,12 +125,36 @@ namespace AssignmentOneApplication
             {
                 SensorHandler.sampleTimer.Start();
                 btnSampling.Text = "Stop Sampling";
+                btnLogging.Enabled = true;
             }
             else
             {
                 SensorHandler.sampleTimer.Stop();
+                SensorHandler.loggingTimer.Stop();
                 btnSampling.Text = "Start Sampling";
+                btnLogging.Enabled = false;
             }
+        }
+
+        private void btnLogging_Click(object sender, EventArgs e)
+        {
+            if (btnLogging.Text == "Start Logging")
+            {
+                SensorHandler.loggingTimer.Start();
+                btnLogging.Text = "Stop Logging";
+            }
+            else
+            {
+                SensorHandler.loggingTimer.Stop();
+                btnLogging.Text = "Start Logging";
+            }
+        }
+
+        private void btnLogging_EnabledChanged(object sender, EventArgs e)
+        {
+            var btn = (Button)sender;
+            btn.ForeColor = btn.Enabled ? Color.Gainsboro : Color.Gray;
+            btn.Text = btn.Enabled ? "Start Logging" : "Logging disabled";
         }
     }
 }
