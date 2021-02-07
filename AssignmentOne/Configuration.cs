@@ -13,7 +13,8 @@ namespace AssignmentOneApplication
         public static int NumberOfAnalogSensors
         {
             get { return Properties.Settings.Default.numberOfAnalogSensors; }
-            set { 
+            set {
+                if (value == Properties.Settings.Default.numberOfAnalogSensors) return;
                 if (value > 0) 
                 {
                     Properties.Settings.Default.numberOfAnalogSensors = value;
@@ -23,6 +24,7 @@ namespace AssignmentOneApplication
                     Properties.Settings.Default.numberOfAnalogSensors = 1;
                 }
                 Properties.Settings.Default.Save();
+                SensorHandler.InitializeSensors();
             }
         }
 
@@ -31,6 +33,7 @@ namespace AssignmentOneApplication
             get { return Properties.Settings.Default.numberOfDigitalSensors; }
             set
             {
+                if (value == Properties.Settings.Default.numberOfDigitalSensors) return;
                 if (value > 0)
                 {
                     Properties.Settings.Default.numberOfDigitalSensors = value;
@@ -40,6 +43,7 @@ namespace AssignmentOneApplication
                     Properties.Settings.Default.numberOfDigitalSensors = 1;
                 }
                 Properties.Settings.Default.Save();
+                SensorHandler.InitializeSensors();
             }
         }
 
@@ -47,9 +51,11 @@ namespace AssignmentOneApplication
         {
             get { return Properties.Settings.Default.samplingTime; }
             set 
-            { 
+            {
+                if (value == Properties.Settings.Default.samplingTime) return;
                 if(value > 0) Properties.Settings.Default.samplingTime = value;
                 Properties.Settings.Default.Save();
+                SensorHandler.InitializeTimers();
             }
         }
 
@@ -57,9 +63,11 @@ namespace AssignmentOneApplication
         {
             get { return Properties.Settings.Default.loggingTime; }
             set 
-            { 
+            {
+                if (value == Properties.Settings.Default.loggingTime) return;
                 if(value > 0) Properties.Settings.Default.loggingTime = value;
                 Properties.Settings.Default.Save();
+                SensorHandler.InitializeTimers();
             }
         }
 
@@ -97,9 +105,11 @@ namespace AssignmentOneApplication
         {
             get { return (FilterTypes) Enum.Parse(typeof(FilterTypes), Properties.Settings.Default.filterType); }
             set 
-            { 
+            {
+                if ((FilterTypes)Enum.Parse(typeof(FilterTypes), Properties.Settings.Default.filterType) == value) return;
                 Properties.Settings.Default.filterType = value.ToString();
                 Properties.Settings.Default.Save();
+                SensorHandler.InitializeSensors();
             }
         }
 

@@ -38,22 +38,12 @@ namespace AssignmentOneApplication
 
         private void InitializeTimers()
         {
-            SensorHandler.sampleTimer.Interval = (int)(Configuration.SamplingTime * 1000);
-            SensorHandler.sampleTimer.Tick += new EventHandler(SensorHandler.SampleSensors);
-            
-            SensorHandler.loggingTimer.Interval = (int)(Configuration.LoggingTime * 1000);
-            SensorHandler.loggingTimer.Tick += new EventHandler(SensorHandler.LogSamples);
+            SensorHandler.InitializeTimers();
         }
 
         private void InitializeSensors()
         {
-            int numberOfSensors = Configuration.NumberOfAnalogSensors + Configuration.NumberOfDigitalSensors;
-            SensorHandler.sensors = new Sensor[numberOfSensors];
-            for (int i = 0; i < Configuration.NumberOfAnalogSensors + Configuration.NumberOfDigitalSensors; i++)
-            {
-                SensorHandler.sensors[i] = new Sensor(i, "Sensor #" + (i + 1), 0.5, i < Configuration.NumberOfAnalogSensors ? true : false);
-                SensorHandler.sensors[i].GetSensorValue();
-            }
+            SensorHandler.InitializeSensors();
         }
 
         private void HideSubMenu()
@@ -126,6 +116,7 @@ namespace AssignmentOneApplication
                 SensorHandler.sampleTimer.Start();
                 btnSampling.Text = "Stop Sampling";
                 btnLogging.Enabled = true;
+                SensorHandler.sensorSampleTimer.TimeString = DateTime.Now.AddSeconds(Configuration.SamplingTime).ToString();
             }
             else
             {
@@ -133,6 +124,8 @@ namespace AssignmentOneApplication
                 SensorHandler.loggingTimer.Stop();
                 btnSampling.Text = "Start Sampling";
                 btnLogging.Enabled = false;
+                SensorHandler.sensorSampleTimer.TimeString = "";
+                SensorHandler.sensorLoggingTimer.TimeString = "";
             }
         }
 
@@ -142,11 +135,13 @@ namespace AssignmentOneApplication
             {
                 SensorHandler.loggingTimer.Start();
                 btnLogging.Text = "Stop Logging";
+                SensorHandler.sensorLoggingTimer.TimeString = DateTime.Now.AddSeconds(Configuration.LoggingTime).ToString();
             }
             else
             {
                 SensorHandler.loggingTimer.Stop();
                 btnLogging.Text = "Start Logging";
+                SensorHandler.sensorLoggingTimer.TimeString = "";
             }
         }
 

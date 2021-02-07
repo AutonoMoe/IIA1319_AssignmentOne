@@ -32,6 +32,7 @@ namespace AssignmentOneApplication
                 flowSensorsMain.Controls.Add(sensorControl);
             }
             txtSensorsNextSampleTime.DataBindings.Add("Text", SensorHandler.sensorSampleTimer, "TimeString", false, DataSourceUpdateMode.OnPropertyChanged);
+            txtSensorsNextLoggingTime.DataBindings.Add("Text", SensorHandler.sensorLoggingTimer, "TimeString", false, DataSourceUpdateMode.OnPropertyChanged);
         }
 
 

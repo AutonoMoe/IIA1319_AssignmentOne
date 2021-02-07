@@ -20,6 +20,28 @@ namespace AssignmentOneApplication
 
         #endregion
 
+        #region Functions
+        public static void InitializeSensors()
+        {
+            int numberOfSensors = Configuration.NumberOfAnalogSensors + Configuration.NumberOfDigitalSensors;
+            sensors = new Sensor[numberOfSensors];
+            for (int i = 0; i < numberOfSensors; i++)
+            {
+                sensors[i] = new Sensor(i, "Sensor #" + (i + 1), 0.5, i < Configuration.NumberOfAnalogSensors ? true : false);
+                sensors[i].GetSensorValue();
+            }
+        }
+
+        public static void InitializeTimers()
+        {
+            sampleTimer.Interval = (int)(Configuration.SamplingTime * 1000);
+            sampleTimer.Tick += new EventHandler(SampleSensors);
+
+            loggingTimer.Interval = (int)(Configuration.LoggingTime * 1000);
+            loggingTimer.Tick += new EventHandler(LogSamples);
+            InitializeSensors();
+        }
+
         public static void SampleSensors(object sender, EventArgs e)
         {
             foreach(Sensor s in sensors)
@@ -35,7 +57,8 @@ namespace AssignmentOneApplication
             {
                 sensorLogger.AddLog(s.SensorId, s.SensorName, DateTime.Now.ToString("dd-MM-yyyy HH:mm.ss"), s.SensorFilteredValue);
             }
+            sensorLoggingTimer.TimeString = DateTime.Now.AddSeconds(Configuration.LoggingTime).ToString();
         }
-
+        #endregion
     }
 }
