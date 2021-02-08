@@ -45,7 +45,7 @@ namespace AssignmentOneApplication
                 new SensorLog(id, name, timeStamp, value)
             };
         
-            string dateString = DateTime.Now.Date.ToString("DD_MM_YYYY");
+            string dateString = DateTime.Now.Date.ToString("dd_MM_yyyy");
             string fileName = "DAQ_Sensor_Log" + (Configuration.LogFileNameWithDateTime ? "_" + dateString + ".csv" : ".csv");
             string filePath = Path.Combine(Configuration.LogSaveLocation, Path.GetFileName(fileName));
             if (System.IO.File.Exists(filePath))

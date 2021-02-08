@@ -55,7 +55,16 @@ namespace AssignmentOneApplication
         {
             foreach(Sensor s in sensors)
             {
-                sensorLogger.AddLog(s.SensorId, s.SensorName, DateTime.Now.ToString("dd-MM-yyyy HH:mm.ss"), s.SensorFilteredValue);
+                double logValue = 0.0;
+                if (s.SensorAnalog)
+                {
+                    logValue = s.SensorFilteredValue;
+                }
+                else
+                {
+                    logValue = s.SensorValue;
+                }
+                sensorLogger.AddLog(s.SensorId, s.SensorName, DateTime.Now.ToString("dd-MM-yyyy HH:mm.ss"), logValue);
             }
             sensorLoggingTimer.TimeString = DateTime.Now.AddSeconds(Configuration.LoggingTime).ToString();
         }
