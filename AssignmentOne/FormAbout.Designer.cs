@@ -29,6 +29,7 @@ namespace AssignmentOneApplication
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAbout));
             this.lblAboutMadeBy = new System.Windows.Forms.Label();
             this.txtAboutMadeBy = new System.Windows.Forms.TextBox();
             this.txtAboutSubject = new System.Windows.Forms.TextBox();
@@ -124,10 +125,9 @@ namespace AssignmentOneApplication
             this.txtAboutIconsBy.Location = new System.Drawing.Point(120, 111);
             this.txtAboutIconsBy.Multiline = true;
             this.txtAboutIconsBy.Name = "txtAboutIconsBy";
-            this.txtAboutIconsBy.Size = new System.Drawing.Size(800, 94);
+            this.txtAboutIconsBy.Size = new System.Drawing.Size(800, 120);
             this.txtAboutIconsBy.TabIndex = 7;
-            this.txtAboutIconsBy.Text = "Square Wave icon: Icon by Icons8\r\nPlot icon: Icon by Icons8\r\nLine Chart icon: Ico" +
-    "n by Icons8\r\nDelete icon: Icon by Icons8";
+            this.txtAboutIconsBy.Text = resources.GetString("txtAboutIconsBy.Text");
             // 
             // FormAbout
             // 
@@ -148,7 +148,6 @@ namespace AssignmentOneApplication
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormAbout";
             this.Text = "FormAbout";
-            this.Load += new System.EventHandler(this.FormAbout_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

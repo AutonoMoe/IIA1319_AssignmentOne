@@ -24,10 +24,6 @@ namespace AssignmentOneApplication
             InitializeSensors();
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
 
         private void InitializeSubMenus()
         {
@@ -150,6 +146,32 @@ namespace AssignmentOneApplication
             var btn = (Button)sender;
             btn.ForeColor = btn.Enabled ? Color.Gainsboro : Color.Gray;
             btn.Text = btn.Enabled ? "Start Logging" : "Logging disabled";
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnMaximize_Click(object sender, EventArgs e)
+        {
+            if(this.WindowState != FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Maximized;
+                btnMaximize.BackgroundImage = (System.Drawing.Image)(AssignmentOneApplication.Properties.Resources.icons8_restore_down_32);
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Normal;
+                btnMaximize.BackgroundImage = (System.Drawing.Image)(AssignmentOneApplication.Properties.Resources.icons8_maximize_button_52);
+            }
+            
+        }
+
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("The DAQ Simulation application is used to simulate sensor inputs and logging of the sensor values. Sensor values can be viewed in the Sensors panel, Configuration can be changed in the Configuration panel and more information can be viewed in the About panel.",
+                                "DAQ Simulator Help", System.Windows.Forms.MessageBoxButtons.OK);
         }
     }
 }

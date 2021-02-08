@@ -39,14 +39,16 @@ namespace AssignmentOneApplication
             this.btnSampling = new System.Windows.Forms.Button();
             this.btnSensors = new System.Windows.Forms.Button();
             this.panelApplicationTitle = new System.Windows.Forms.Panel();
-            this.panelLogo = new System.Windows.Forms.Panel();
             this.lblApplicationTitle = new System.Windows.Forms.Label();
             this.panelTitleBar = new System.Windows.Forms.Panel();
-            this.btnExit = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.panelMain = new System.Windows.Forms.Panel();
-            this.panelMainLogo = new System.Windows.Forms.Panel();
             this.lblMainLogoTitle = new System.Windows.Forms.Label();
+            this.panelMainLogo = new System.Windows.Forms.Panel();
+            this.btnHelp = new System.Windows.Forms.Button();
+            this.btnMaximize = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.panelLogo = new System.Windows.Forms.Panel();
             this.panelSideBar.SuspendLayout();
             this.panelSensorsSubMenu.SuspendLayout();
             this.panelApplicationTitle.SuspendLayout();
@@ -182,16 +184,6 @@ namespace AssignmentOneApplication
             this.panelApplicationTitle.Size = new System.Drawing.Size(250, 100);
             this.panelApplicationTitle.TabIndex = 0;
             // 
-            // panelLogo
-            // 
-            this.panelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(35)))));
-            this.panelLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelLogo.BackgroundImage")));
-            this.panelLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panelLogo.Location = new System.Drawing.Point(93, 4);
-            this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(64, 64);
-            this.panelLogo.TabIndex = 1;
-            // 
             // lblApplicationTitle
             // 
             this.lblApplicationTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(35)))));
@@ -207,6 +199,8 @@ namespace AssignmentOneApplication
             // 
             // panelTitleBar
             // 
+            this.panelTitleBar.Controls.Add(this.btnHelp);
+            this.panelTitleBar.Controls.Add(this.btnMaximize);
             this.panelTitleBar.Controls.Add(this.btnExit);
             this.panelTitleBar.Controls.Add(this.lblTitle);
             this.panelTitleBar.Dock = System.Windows.Forms.DockStyle.Top;
@@ -214,24 +208,6 @@ namespace AssignmentOneApplication
             this.panelTitleBar.Name = "panelTitleBar";
             this.panelTitleBar.Size = new System.Drawing.Size(950, 100);
             this.panelTitleBar.TabIndex = 2;
-            // 
-            // btnExit
-            // 
-            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(7)))), ((int)(((byte)(11)))));
-            this.btnExit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExit.BackgroundImage")));
-            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnExit.FlatAppearance.BorderSize = 0;
-            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(15)))), ((int)(((byte)(20)))));
-            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(10)))), ((int)(((byte)(15)))));
-            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnExit.Location = new System.Drawing.Point(915, 3);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(32, 32);
-            this.btnExit.TabIndex = 3;
-            this.btnExit.UseVisualStyleBackColor = false;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // lblTitle
             // 
@@ -257,17 +233,9 @@ namespace AssignmentOneApplication
             this.panelMain.Size = new System.Drawing.Size(950, 600);
             this.panelMain.TabIndex = 3;
             // 
-            // panelMainLogo
-            // 
-            this.panelMainLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelMainLogo.BackgroundImage")));
-            this.panelMainLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panelMainLogo.Location = new System.Drawing.Point(416, 128);
-            this.panelMainLogo.Name = "panelMainLogo";
-            this.panelMainLogo.Size = new System.Drawing.Size(128, 128);
-            this.panelMainLogo.TabIndex = 3;
-            // 
             // lblMainLogoTitle
             // 
+            this.lblMainLogoTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblMainLogoTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMainLogoTitle.ForeColor = System.Drawing.Color.White;
             this.lblMainLogoTitle.Location = new System.Drawing.Point(355, 259);
@@ -276,6 +244,80 @@ namespace AssignmentOneApplication
             this.lblMainLogoTitle.TabIndex = 2;
             this.lblMainLogoTitle.Text = "DAQ Simulator\r\nApplication";
             this.lblMainLogoTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panelMainLogo
+            // 
+            this.panelMainLogo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panelMainLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelMainLogo.BackgroundImage")));
+            this.panelMainLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panelMainLogo.Location = new System.Drawing.Point(416, 128);
+            this.panelMainLogo.Name = "panelMainLogo";
+            this.panelMainLogo.Size = new System.Drawing.Size(128, 128);
+            this.panelMainLogo.TabIndex = 3;
+            // 
+            // btnHelp
+            // 
+            this.btnHelp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnHelp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(7)))), ((int)(((byte)(11)))));
+            this.btnHelp.BackgroundImage = global::AssignmentOneApplication.Properties.Resources.icons8_help_32;
+            this.btnHelp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnHelp.FlatAppearance.BorderSize = 0;
+            this.btnHelp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(15)))), ((int)(((byte)(20)))));
+            this.btnHelp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(10)))), ((int)(((byte)(15)))));
+            this.btnHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHelp.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnHelp.Location = new System.Drawing.Point(828, 3);
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.Size = new System.Drawing.Size(32, 32);
+            this.btnHelp.TabIndex = 5;
+            this.btnHelp.UseVisualStyleBackColor = false;
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
+            // 
+            // btnMaximize
+            // 
+            this.btnMaximize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMaximize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(7)))), ((int)(((byte)(11)))));
+            this.btnMaximize.BackgroundImage = global::AssignmentOneApplication.Properties.Resources.icons8_maximize_button_52;
+            this.btnMaximize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnMaximize.FlatAppearance.BorderSize = 0;
+            this.btnMaximize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(15)))), ((int)(((byte)(20)))));
+            this.btnMaximize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(10)))), ((int)(((byte)(15)))));
+            this.btnMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMaximize.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnMaximize.Location = new System.Drawing.Point(877, 6);
+            this.btnMaximize.Name = "btnMaximize";
+            this.btnMaximize.Size = new System.Drawing.Size(26, 26);
+            this.btnMaximize.TabIndex = 4;
+            this.btnMaximize.UseVisualStyleBackColor = false;
+            this.btnMaximize.Click += new System.EventHandler(this.btnMaximize_Click);
+            // 
+            // btnExit
+            // 
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(7)))), ((int)(((byte)(11)))));
+            this.btnExit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExit.BackgroundImage")));
+            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(15)))), ((int)(((byte)(20)))));
+            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(10)))), ((int)(((byte)(15)))));
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnExit.Location = new System.Drawing.Point(915, 3);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(32, 32);
+            this.btnExit.TabIndex = 3;
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // panelLogo
+            // 
+            this.panelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(35)))));
+            this.panelLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelLogo.BackgroundImage")));
+            this.panelLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panelLogo.Location = new System.Drawing.Point(93, 4);
+            this.panelLogo.Name = "panelLogo";
+            this.panelLogo.Size = new System.Drawing.Size(64, 64);
+            this.panelLogo.TabIndex = 1;
             // 
             // AssignmentOne
             // 
@@ -325,6 +367,8 @@ namespace AssignmentOneApplication
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Panel panelMainLogo;
         private System.Windows.Forms.Label lblMainLogoTitle;
+        private System.Windows.Forms.Button btnMaximize;
+        private System.Windows.Forms.Button btnHelp;
     }
 }
 

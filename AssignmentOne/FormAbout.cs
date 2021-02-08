@@ -16,10 +16,5 @@ namespace AssignmentOneApplication
         {
             InitializeComponent();
         }
-
-        private void FormAbout_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

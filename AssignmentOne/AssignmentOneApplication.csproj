@@ -164,5 +164,14 @@
   <ItemGroup>
     <None Include="assets\images\icons8-square-wave-100.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\images\icons8-maximize-button-52.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\images\icons8-restore-down-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\images\icons8-help-32.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

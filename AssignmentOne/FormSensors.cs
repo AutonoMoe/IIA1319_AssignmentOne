@@ -20,6 +20,7 @@ namespace AssignmentOneApplication
         private void InitializeSensorControls()
         {
             flowSensorsMain.Controls.Clear();
+            Random random = new Random();
             foreach(Sensor s in SensorHandler.sensors)
             {
                 SensorControl sensorControl = new SensorControl();
@@ -27,6 +28,7 @@ namespace AssignmentOneApplication
                 sensorControl.SensorName = s.SensorName;
                 sensorControl.SensorId = s.SensorId;
                 sensorControl.SensorName = s.SensorName;
+                sensorControl.SensorColor = Color.FromArgb(random.Next(150), random.Next(150), random.Next(150));
                 sensorControl.DataBindings.Add("SensorValue", s, "SensorValue", false, DataSourceUpdateMode.OnPropertyChanged);
                 sensorControl.SensorIcon = s.SensorAnalog == true ? ((System.Drawing.Image)(AssignmentOneApplication.Properties.Resources.icons8_plot_100)) : ((System.Drawing.Image)(AssignmentOneApplication.Properties.Resources.icons8_square_wave_100));
                 flowSensorsMain.Controls.Add(sensorControl);

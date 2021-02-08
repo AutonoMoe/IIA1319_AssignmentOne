@@ -83,9 +83,39 @@ namespace AssignmentOneApplication.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_help_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-help-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_maximize_button_52 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-maximize-button-52", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_plot_100 {
             get {
                 object obj = ResourceManager.GetObject("icons8-plot-100", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_restore_down_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-restore-down-32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

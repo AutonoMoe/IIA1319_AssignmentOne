@@ -117,4 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="txtAboutIconsBy.Text" xml:space="preserve">
+    <value>Square Wave icon: Icon by Icons8
+Plot icon: Icon by Icons8
+Line Chart icon: Icon by Icons8
+Delete icon: Icon by Icons8
+Maximize Button: Icon by Icons8
+Restore Down: Icon by Icons8
+Help icon: Icon by Icons8</value>
+  </data>
 </root>
